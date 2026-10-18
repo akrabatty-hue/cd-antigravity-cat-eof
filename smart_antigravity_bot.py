@@ -7,6 +7,11 @@ from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 load_dotenv()
 
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+if not TELEGRAM_BOT_TOKEN:
+    print("❌ Ошибка: Переменная окружения TELEGRAM_BOT_TOKEN не задана.")
+    print("Укажите TELEGRAM_BOT_TOKEN в файле .env или передайте через переменные окружения.")
+    exit(1)
+
 bot = TeleBot(TELEGRAM_BOT_TOKEN)
 
 UNIT_COST = 1200
